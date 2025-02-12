@@ -20,10 +20,3 @@ Function.prototype.myBind = function (context, ...args) {
 	bound.prototype = new tempFn();
 	return bound;
 };
-
-function greet(name, age) {
-	console.log(`Hello, ${name}! My name is ${this.name}, age is ${age}!`);
-}
-const person = { name: 'Alice' };
-
-greet.myBind(person, 'Bob')(18);
