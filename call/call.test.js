@@ -3,10 +3,10 @@ require('./call');
 describe('call', () => {
 	it('正常情况', () => {
 		function greet(name) {
-			console.log(`Hello, ${name}! My name is ${this.name}.`);
+			return `Hello, ${name}! My name is ${this.name}.`;
 		}
 		const person = { name: 'Alice' };
-		greet.myCall(person, 'Bob');
+		expect(greet.myCall(person, 'Bob')).toBe('Hello, Bob! My name is Alice.');
 	});
 	it('当输入为null或undefined的时候', () => {
 		function add(a, b) {
