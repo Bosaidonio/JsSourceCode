@@ -1,5 +1,5 @@
 // 自定义实现的 Promise 类
-class Promise {
+class MyPromise {
 	// 定义 Promise 的三种状态
 	static STATE_PENDING = 'pending'; // 等待中
 	static STATE_FULFILLED = 'fulfilled'; // 已成功
@@ -111,6 +111,13 @@ class Promise {
 
 	// then 方法，用于链式调用
 	then(onFulfilled, onRejected) {
+		onFulfilled = typeof onFulfilled === 'function' ? onFulfilled : value => value;
+		onRejected =
+			typeof onRejected === 'function'
+				? onRejected
+				: reason => {
+						throw reason;
+					};
 		// 创建一个新的 Promise
 		const promise2 = new Promise((resolve, reject) => {
 			// 处理成功回调
@@ -243,3 +250,5 @@ class Promise {
 		});
 	}
 }
+
+module.exports = MyPromise;

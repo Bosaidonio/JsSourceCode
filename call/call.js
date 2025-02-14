@@ -1,4 +1,7 @@
 Function.prototype.myCall = function (context, ...args) {
+	if (typeof this !== 'function') {
+		throw new TypeError(`Call must be called on a function`);
+	}
 	// 当context为null或undefined时 设置为全局对象
 	context = context || globalThis;
 	// 通过Symbol创建唯一属性名
@@ -11,9 +14,3 @@ Function.prototype.myCall = function (context, ...args) {
 	delete context[fnSymbol];
 	return result;
 };
-function greet(name) {
-	console.log(`Hello, ${name}! My name is ${this.name}.`);
-}
-const person = { name: 'Alice' };
-
-greet.myCall(person, 'Bob');
