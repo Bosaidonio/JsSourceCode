@@ -5,11 +5,11 @@
 
 ## 项目结构
 
-├── apply/ # apply 方法实现
-├── call/ # call 方法实现
-├── instanceof/ # instanceof 运算符实现
-├── new/ # new 运算符实现
-└── promise/ # Promise 类实现
+├── apply/ # apply 方法实现 \
+├── call/ # call 方法实现 \
+├── instanceof/ # instanceof 运算符实现 \
+├── new/ # new 运算符实现 \
+└── promise/ # Promise 类实现 \
 
 
 ## 功能实现
